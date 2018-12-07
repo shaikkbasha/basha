@@ -1,0 +1,17 @@
+<div class="div">
+  <table border="1px">
+      <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th>gmail</th>
+
+    <tr *ngFor="let li of l">
+      <td>{{li.id}}</td>
+      <td>{{li.name}}</td>
+      <td>{{li.gmail}}</td>
+      <td><a [routerLink]="['/update',li.id]">update</a></td>
+      <td><a [routerLink]="['/delete',li.id]">delete</a></td>
+
+      </tr>
+    </table>
+</div>
