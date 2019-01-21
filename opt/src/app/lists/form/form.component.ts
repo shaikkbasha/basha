@@ -10,14 +10,17 @@ import { Router, ActivatedRoute } from '@angular/router';
   styleUrls: ['./form.component.css']
 })
 export class FormComponent implements OnInit {
-u:List;
+u:List = new List();;
 id:any;
+actionType:any;
   constructor(private sf:ListServiceService,private router:Router,private ar:ActivatedRoute) { 
-    this.u = new List();
-   var listId= this.ar.snapshot.params['id'];
-   this.id =listId;
-   if(listId){
-     this.sf.getBusId(listId).subscribe((data)=>{
+    this.ar.queryParams.subscribe( (params) =>{
+        this.actionType= params.action || 'new';
+        this.id = params.id;
+    })
+    
+   if(this.id){
+     this.sf.getBusId(this.id).subscribe((data)=>{
        this.u = <List>data;
      })
    }

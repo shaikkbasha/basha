@@ -9,8 +9,8 @@
       <td>{{li.id}}</td>
       <td>{{li.name}}</td>
       <td>{{li.gmail}}</td>
-      <td><a [routerLink]="['/update',li.id]">update</a></td>
-      <td><a [routerLink]="['/delete',li.id]">delete</a></td>
+      <td><a [routerLink]="['/form']" [queryParams]="{ id: li.id, action: 'update'}">update</a></td>
+      <td><a [routerLink]="['/form']" [queryParams]="{ id: li.id, action: 'delete'}">delete</a></td>
 
       </tr>
     </table>
